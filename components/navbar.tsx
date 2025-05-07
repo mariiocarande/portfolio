@@ -57,7 +57,7 @@ export default function Navbar() {
       >
         <div className="flex justify-between items-center">
           <a href="#" className="text-2xl font-bold">
-            Portfolio
+            MCS
           </a>
 
           {/* Desktop Menu */}
