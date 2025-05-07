@@ -5,7 +5,7 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react"
-import ProjectCard from "@/components/project-card"
+// import ProjectCard from "@/components/project-card"
 import Navbar from "@/components/navbar"
 import SplitText from "@/components/split-text"
 import TimelineItem from "@/components/timeline-item"
@@ -14,39 +14,27 @@ import Image from "next/image"
 export default function Portfolio() {
   const headerRef = useRef(null)
   const experienceRef = useRef(null)
-  const projectsRef = useRef(null)
+  // const projectsRef = useRef(null)
   const aboutRef = useRef(null)
   const contactRef = useRef(null)
 
   // Experience data
   const experiences = [
     {
-      year: "2020 - Presente",
-      company: "Empresa Innovadora",
-      position: "Senior Frontend Developer",
+      year: "2023 - Present",
+      company: "The Blue Box",
+      position: "Full Stack Developer",
       description:
-        "Desarrollo de aplicaciones web utilizando React, Next.js y GSAP. Implementación de animaciones avanzadas y mejora de la experiencia de usuario.",
+        "Development of web and mobile applications, including landing pages, admin dashboards, and mobile apps using React Native. Leveraging modern tools to create responsive, user-focused solutions and optimize the overall user experience.",
+      website: "https://www.thebluebox.dev"
     },
     {
-      year: "2018 - 2020",
-      company: "Agencia Digital",
-      position: "UI/UX Developer",
-      description:
-        "Diseño y desarrollo de interfaces de usuario para clientes de diversos sectores. Creación de prototipos interactivos y desarrollo frontend.",
-    },
-    {
-      year: "2016 - 2018",
-      company: "Startup Tecnológica",
+      year: "2019 - 2023",
+      company: "Nimble LA",
       position: "Frontend Developer",
       description:
-        "Desarrollo de aplicaciones web y móviles. Implementación de diseños responsivos y optimización de rendimiento.",
-    },
-    {
-      year: "2014 - 2016",
-      company: "Consultora Web",
-      position: "Web Developer",
-      description:
-        "Desarrollo de sitios web corporativos y tiendas online. Implementación de soluciones personalizadas para clientes.",
+        "Development of web applications, including landing pages, admin dashboards, and Chrome extensions, using modern tools. Refactoring of applications with legacy code, creation of PWAs, and management of real-time data. Independent and team-based work, utilizing project management tools to optimize processes and enhance user experience.",
+      website: "https://nimble.la",
     },
   ]
 
@@ -136,22 +124,22 @@ export default function Portfolio() {
       },
     )
 
-    // Project cards animation
-    gsap.fromTo(
-      ".project-card",
-      { y: 100, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        stagger: 0.2,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: projectsRef.current,
-          start: "top 80%",
-        },
-      },
-    )
+    // // Project cards animation
+    // gsap.fromTo(
+    //   ".project-card",
+    //   { y: 100, opacity: 0 },
+    //   {
+    //     y: 0,
+    //     opacity: 1,
+    //     stagger: 0.2,
+    //     duration: 0.8,
+    //     ease: "power3.out",
+    //     scrollTrigger: {
+    //       trigger: projectsRef.current,
+    //       start: "top 80%",
+    //     },
+    //   },
+    // )
 
     // About section animation
     gsap.fromTo(
@@ -230,27 +218,27 @@ export default function Portfolio() {
       <Navbar />
 
       {/* Hero Section */}
-      <section ref={headerRef} className="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-20">
+      <section ref={headerRef} className="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-20 bg-slate-900">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="max-w-5xl">
             <h1 className="hero-title text-4xl md:text-6xl lg:text-7xl font-bold mb-6 overflow-hidden">
-              <SplitText>Creando experiencias digitales únicas y memorables</SplitText>
+              <SplitText>Creating unique and memorable digital experiences</SplitText>
             </h1>
             <p className="hero-subtitle text-xl md:text-2xl text-gray-400 mb-8 max-w-2xl">
-              Desarrollador web & diseñador UI/UX especializado en crear soluciones digitales impactantes.
+              Passionate web & mobile developer creating innovative digital solutions.
             </p>
             <Button
               className="hero-button bg-white text-black hover:bg-gray-200 rounded-full px-8 py-6 text-lg font-medium flex items-center gap-2 group"
               onClick={() => document.getElementById("experience")?.scrollIntoView({ behavior: "smooth" })}
             >
-              Mi experiencia
+              My experience
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Button>
           </div>
-          <div className="profile-image-container relative aspect-square w-full max-w-md mx-auto lg:ml-auto overflow-hidden rounded-2xl">
+          <div className="profile-image-container relative aspect-square w-full max-w-md mx-auto lg:ml-auto overflow-hidden rounded-full">
             <Image
-              src="/placeholder.svg?height=800&width=800"
-              alt="Tu foto de perfil"
+              src="/profile-pic-1.png?height=800&width=800"
+              alt="Profile Image"
               fill
               className="object-cover"
               priority
@@ -261,9 +249,9 @@ export default function Portfolio() {
       </section>
 
       {/* Experience Timeline Section */}
-      <section id="experience" ref={experienceRef} className="py-24 px-6 md:px-12 lg:px-24 relative">
+      <section id="experience" ref={experienceRef} className="py-24 px-6 md:px-12 lg:px-24 relative bg-zinc-900">
         <h2 className="experience-title text-3xl md:text-4xl font-bold mb-16 text-center">
-          Mi trayectoria profesional
+          My professional career path
         </h2>
 
         {/* Timeline progress indicator (animated line) */}
@@ -277,6 +265,7 @@ export default function Portfolio() {
               company={exp.company}
               position={exp.position}
               description={exp.description}
+              website={exp.website}
               index={index}
               isLast={index === experiences.length - 1}
             />
@@ -284,7 +273,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* Projects Section
       <section id="projects" ref={projectsRef} className="py-24 px-6 md:px-12 lg:px-24">
         <h2 className="text-3xl md:text-4xl font-bold mb-16">Proyectos destacados</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
@@ -317,27 +306,27 @@ export default function Portfolio() {
             link="#"
           />
         </div>
-      </section>
+      </section> */}
 
       {/* About Section */}
-      <section id="about" ref={aboutRef} className="py-24 px-6 md:px-12 lg:px-24 bg-zinc-900">
+      <section id="about" ref={aboutRef} className="py-24 px-6 md:px-12 lg:px-24 bg-zinc-800">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">Sobre mí</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">About me</h2>
           <div className="about-content space-y-6 text-lg text-gray-300">
             <p>
-              Soy un desarrollador web y diseñador UI/UX apasionado por crear experiencias digitales que combinan
-              estética y funcionalidad.
+              I am a web & mobile developer passionate about creating digital experiences that combine
+              aesthetics and functionality.
             </p>
             <p>
-              Con más de 5 años de experiencia en el desarrollo web, me especializo en crear sitios web y aplicaciones
-              que no solo se ven bien, sino que también funcionan de manera excepcional.
+              With over 5 years of experience in web development, I specialize in creating websites and applications
+              that not only look good but also work exceptionally well.
             </p>
             <p>
-              Mi enfoque se centra en la atención al detalle, la optimización del rendimiento y la creación de
-              interfaces intuitivas que mejoran la experiencia del usuario.
+              My approach focuses on attention to detail, performance optimization, and creating
+              intuitive interfaces that enhance user experience.
             </p>
             <div className="pt-8">
-              <h3 className="text-xl font-semibold mb-4">Habilidades</h3>
+              <h3 className="text-xl font-semibold mb-4">Skills</h3>
               <div className="flex flex-wrap gap-3">
                 {[
                   "JavaScript",
@@ -348,7 +337,6 @@ export default function Portfolio() {
                   "GSAP",
                   "Tailwind CSS",
                   "UI/UX Design",
-                  "Three.js",
                   "Figma",
                 ].map((skill) => (
                   <span key={skill} className="px-4 py-2 bg-zinc-800 rounded-full text-sm">
@@ -364,47 +352,47 @@ export default function Portfolio() {
       {/* Contact Section */}
       <section id="contact" ref={contactRef} className="py-24 px-6 md:px-12 lg:px-24">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">Contacto</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">Contact</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-8">
               <div className="contact-item flex items-center gap-4">
                 <Mail className="w-6 h-6" />
-                <a href="mailto:tu@email.com" className="text-lg hover:text-gray-300 transition-colors">
-                  tu@email.com
+                <a href="mailto:mdc.mariio@gmail.com" className="text-lg hover:text-gray-300 transition-colors">
+                  mdc.mariio@gmail.com
                 </a>
               </div>
               <div className="contact-item flex items-center gap-4">
                 <Linkedin className="w-6 h-6" />
                 <a
-                  href="https://linkedin.com/in/tuusuario"
+                  href="https://linkedin.com/in/mario-carande-scarafia"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-lg hover:text-gray-300 transition-colors"
                 >
-                  linkedin.com/in/tuusuario
+                  linkedin.com/in/mario-carande-scarafia
                 </a>
               </div>
               <div className="contact-item flex items-center gap-4">
                 <Github className="w-6 h-6" />
                 <a
-                  href="https://github.com/tuusuario"
+                  href="https://github.com/mariiocarande"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-lg hover:text-gray-300 transition-colors"
                 >
-                  github.com/tuusuario
+                  github.com/mariiocarande
                 </a>
               </div>
             </div>
             <div className="contact-item">
               <p className="text-lg text-gray-300 mb-6">
-                ¿Interesado en trabajar juntos? Envíame un mensaje y conversemos sobre tu proyecto.
+                Interested in working together? Send me a message and let's discuss your project.
               </p>
               <Button
                 className="bg-white text-black hover:bg-gray-200 rounded-full px-8 py-6 text-lg font-medium flex items-center gap-2 group"
-                onClick={() => (window.location.href = "mailto:tu@email.com")}
+                onClick={() => (window.location.href = "mailto:mdc.mariio@gmail.com")}
               >
-                Enviar mensaje
+                Send Message
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
               </Button>
             </div>
@@ -416,16 +404,16 @@ export default function Portfolio() {
       <footer className="py-12 px-6 md:px-12 lg:px-24 border-t border-zinc-800">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 mb-4 md:mb-0">
-            © {new Date().getFullYear()} Tu Nombre. Todos los derechos reservados.
+            © {new Date().getFullYear()} Mario Carande Scarafía. Todos los derechos reservados.
           </p>
           <div className="flex gap-6">
-            <a href="https://linkedin.com/in/tuusuario" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a href="https://linkedin.com/in/mario-carande-scarafia" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <Linkedin className="w-5 h-5 text-gray-400 hover:text-white transition-colors" />
             </a>
-            <a href="https://github.com/tuusuario" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a href="https://github.com/mariiocarande" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <Github className="w-5 h-5 text-gray-400 hover:text-white transition-colors" />
             </a>
-            <a href="mailto:tu@email.com" aria-label="Email">
+            <a href="mailto:mdc.mariio@gmail.com" aria-label="Email">
               <Mail className="w-5 h-5 text-gray-400 hover:text-white transition-colors" />
             </a>
           </div>

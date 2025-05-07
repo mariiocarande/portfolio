@@ -52,7 +52,7 @@ export default function Navbar() {
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-24 py-6 transition-all duration-300 ${
-          scrolled ? "bg-black/80 backdrop-blur-md" : "bg-transparent"
+          scrolled ? "bg-black/40 backdrop-blur-md" : "bg-transparent"
         }`}
       >
         <div className="flex justify-between items-center">
@@ -66,31 +66,31 @@ export default function Navbar() {
               onClick={() => scrollToSection("experience")}
               className="text-gray-300 hover:text-white transition-colors"
             >
-              Trayectoria
+              Experience
             </button>
-            <button
+            {/* <button
               onClick={() => scrollToSection("projects")}
               className="text-gray-300 hover:text-white transition-colors"
             >
-              Proyectos
-            </button>
+              Projects
+            </button> */}
             <button
               onClick={() => scrollToSection("about")}
               className="text-gray-300 hover:text-white transition-colors"
             >
-              Sobre mí
+              About
             </button>
             <button
               onClick={() => scrollToSection("contact")}
               className="text-gray-300 hover:text-white transition-colors"
             >
-              Contacto
+              Contact
             </button>
             <Button
               className="bg-white text-black hover:bg-gray-200 rounded-full px-6"
               onClick={() => (window.location.href = "mailto:tu@email.com")}
             >
-              Hablemos
+              Let's talk
             </Button>
           </div>
 
@@ -109,31 +109,31 @@ export default function Navbar() {
               className="mobile-menu-item text-left py-4 border-b border-zinc-800"
               onClick={() => scrollToSection("experience")}
             >
-              Trayectoria
+              Experience
             </button>
             <button
               className="mobile-menu-item text-left py-4 border-b border-zinc-800"
               onClick={() => scrollToSection("projects")}
             >
-              Proyectos
+              Projects
             </button>
             <button
               className="mobile-menu-item text-left py-4 border-b border-zinc-800"
               onClick={() => scrollToSection("about")}
             >
-              Sobre mí
+              About
             </button>
             <button
               className="mobile-menu-item text-left py-4 border-b border-zinc-800"
               onClick={() => scrollToSection("contact")}
             >
-              Contacto
+              Contact
             </button>
             <Button
               className="mobile-menu-item mt-4 bg-white text-black hover:bg-gray-200 rounded-full px-6 py-6 text-lg"
               onClick={() => (window.location.href = "mailto:tu@email.com")}
             >
-              Hablemos
+              Let's talk
             </Button>
           </div>
         </div>
