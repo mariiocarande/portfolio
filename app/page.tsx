@@ -5,7 +5,7 @@ import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react"
-// import ProjectCard from "@/components/project-card"
+import ProjectCard from "@/components/project-card"
 import Navbar from "@/components/navbar"
 import SplitText from "@/components/split-text"
 import TimelineItem from "@/components/timeline-item"
@@ -14,7 +14,7 @@ import Image from "next/image"
 export default function Portfolio() {
   const headerRef = useRef(null)
   const experienceRef = useRef(null)
-  // const projectsRef = useRef(null)
+  const projectsRef = useRef(null)
   const aboutRef = useRef(null)
   const contactRef = useRef(null)
 
@@ -125,21 +125,21 @@ export default function Portfolio() {
     )
 
     // // Project cards animation
-    // gsap.fromTo(
-    //   ".project-card",
-    //   { y: 100, opacity: 0 },
-    //   {
-    //     y: 0,
-    //     opacity: 1,
-    //     stagger: 0.2,
-    //     duration: 0.8,
-    //     ease: "power3.out",
-    //     scrollTrigger: {
-    //       trigger: projectsRef.current,
-    //       start: "top 80%",
-    //     },
-    //   },
-    // )
+    gsap.fromTo(
+      ".project-card",
+      { y: 100, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.2,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: projectsRef.current,
+          start: "top 80%",
+        },
+      },
+    )
 
     // About section animation
     gsap.fromTo(
@@ -273,40 +273,19 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Projects Section
+      {/* Projects Section */}
       <section id="projects" ref={projectsRef} className="py-24 px-6 md:px-12 lg:px-24">
-        <h2 className="text-3xl md:text-4xl font-bold mb-16">Proyectos destacados</h2>
+        <h2 className="text-3xl md:text-4xl font-bold mb-16">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           <ProjectCard
-            title="E-commerce Platform"
-            description="Una plataforma de comercio electrónico completa con pasarela de pagos y gestión de inventario."
-            tags={["Next.js", "Stripe", "Tailwind CSS"]}
-            image="/placeholder.svg?height=600&width=800"
-            link="#"
-          />
-          <ProjectCard
-            title="Dashboard Analytics"
-            description="Panel de control interactivo para visualización de datos y análisis en tiempo real."
-            tags={["React", "D3.js", "Firebase"]}
-            image="/placeholder.svg?height=600&width=800"
-            link="#"
-          />
-          <ProjectCard
-            title="Mobile App"
-            description="Aplicación móvil para gestión de tareas y productividad personal."
-            tags={["React Native", "Redux", "Node.js"]}
-            image="/placeholder.svg?height=600&width=800"
-            link="#"
-          />
-          <ProjectCard
-            title="Portfolio Website"
-            description="Sitio web de portfolio con animaciones avanzadas y diseño responsivo."
-            tags={["GSAP", "Three.js", "Next.js"]}
-            image="/placeholder.svg?height=600&width=800"
-            link="#"
+            title="Landing Page"
+            description="Landing page for a web application using Next.js and Tailwind CSS."
+            tags={["Next.js", "Lucide","TypeScript", "Lenis", "Tailwind CSS"]}
+            image="/project-1.png?height=600&width=800"
+            link="https://landing-example-chi.vercel.app/"
           />
         </div>
-      </section> */}
+      </section>
 
       {/* About Section */}
       <section id="about" ref={aboutRef} className="py-24 px-6 md:px-12 lg:px-24 bg-zinc-800">

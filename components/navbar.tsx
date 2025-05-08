@@ -68,12 +68,12 @@ export default function Navbar() {
             >
               Experience
             </button>
-            {/* <button
+            <button
               onClick={() => scrollToSection("projects")}
               className="text-gray-300 hover:text-white transition-colors"
             >
               Projects
-            </button> */}
+            </button>
             <button
               onClick={() => scrollToSection("about")}
               className="text-gray-300 hover:text-white transition-colors"
