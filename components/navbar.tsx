@@ -88,7 +88,7 @@ export default function Navbar() {
             </button>
             <Button
               className="bg-white text-black hover:bg-gray-200 rounded-full px-6"
-              onClick={() => (window.location.href = "mailto:tu@email.com")}
+              onClick={() => (window.location.href = "mailto:mdc.mariio@gmail.com")}
             >
               Let's talk
             </Button>
@@ -131,7 +131,7 @@ export default function Navbar() {
             </button>
             <Button
               className="mobile-menu-item mt-4 bg-white text-black hover:bg-gray-200 rounded-full px-6 py-6 text-lg"
-              onClick={() => (window.location.href = "mailto:tu@email.com")}
+              onClick={() => (window.location.href = "mailto:mdc.mariio@gmail.com")}
             >
               Let's talk
             </Button>
