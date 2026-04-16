@@ -1,29 +1,29 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { gsap } from "gsap"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useState, useEffect } from "react";
+import { gsap } from "gsap";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const offset = window.scrollY
+      const offset = window.scrollY;
       if (offset > 50) {
-        setScrolled(true)
+        setScrolled(true);
       } else {
-        setScrolled(false)
+        setScrolled(false);
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [])
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -32,21 +32,21 @@ export default function Navbar() {
         ".mobile-menu-item",
         { y: 20, opacity: 0 },
         { y: 0, opacity: 1, stagger: 0.1, duration: 0.4, ease: "power3.out" },
-      )
+      );
     }
-  }, [isOpen])
+  }, [isOpen]);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
+    const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-      setIsOpen(false)
+      element.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false);
     }
-  }
+  };
 
   return (
     <>
@@ -88,14 +88,20 @@ export default function Navbar() {
             </button>
             <Button
               className="bg-white text-black hover:bg-gray-200 rounded-full px-6"
-              onClick={() => (window.location.href = "mailto:mdc.mariio@gmail.com")}
+              onClick={() =>
+                (window.location.href = "mailto:mdc.mariio@gmail.com")
+              }
             >
               Let's talk
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden text-white" onClick={toggleMenu} aria-label="Toggle menu">
+          <button
+            className="md:hidden text-white"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
@@ -131,7 +137,9 @@ export default function Navbar() {
             </button>
             <Button
               className="mobile-menu-item mt-4 bg-white text-black hover:bg-gray-200 rounded-full px-6 py-6 text-lg"
-              onClick={() => (window.location.href = "mailto:mdc.mariio@gmail.com")}
+              onClick={() =>
+                (window.location.href = "mailto:mdc.mariio@gmail.com")
+              }
             >
               Let's talk
             </Button>
@@ -139,5 +147,5 @@ export default function Navbar() {
         </div>
       )}
     </>
-  )
+  );
 }
