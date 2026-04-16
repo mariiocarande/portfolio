@@ -315,7 +315,7 @@ export default function Portfolio() {
             description="Web platform for free AI-powered legal consultations, integrating an AI model for legal queries and a blog powered by Strapi CMS."
             tags={["Next.js", "TypeScript", "Strapi", "AI"]}
             image="/ipsaiq-project.png"
-            link="#"
+            link="https://ipsaiq.com/"
             collaborators={[
               { name: "TheBlueBox", link: "https://www.linkedin.com/company/theblueboxdev" },
               { name: "TheCreativeBomb", link: "https://www.linkedin.com/company/thecreativebomb" },
