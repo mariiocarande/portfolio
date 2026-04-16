@@ -278,6 +278,60 @@ export default function Portfolio() {
         <h2 className="text-3xl md:text-4xl font-bold mb-16">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           <ProjectCard
+            title="The Religion Business"
+            description="Platform to purchase and stream The Religion Business docuseries, featuring video playback, subscription management, and payment integration."
+            tags={["Next.js", "TypeScript", "Mux", "Shadcn", "Stripe"]}
+            image="/trb-project.png"
+            link="https://www.thereligionbusiness.com/"
+            collaborators={[
+              { name: "TheBlueBox", link: "https://www.linkedin.com/company/theblueboxdev" },
+              { name: "TheCreativeBomb", link: "https://www.linkedin.com/company/thecreativebomb" },
+            ]}
+          />
+          <ProjectCard
+            title="Broken Shepherds"
+            description="CMS built to manage users and application content for the Broken Shepherds app, including user data, roles, and internal information."
+            tags={["Next.js", "TypeScript", "Shadcn", "Tailwind CSS"]}
+            image="/broken-shepherds-project.png"
+            link="https://app.brokenshepherds.com/"
+            collaborators={[
+              { name: "TheBlueBox", link: "https://www.linkedin.com/company/theblueboxdev" },
+              { name: "TheCreativeBomb", link: "https://www.linkedin.com/company/thecreativebomb" },
+            ]}
+          />
+          <ProjectCard
+            title="Oopoll"
+            description="Real-time social platform for interactive engagement at scale. Contributed new features to the React Native mobile app."
+            tags={["React Native", "TypeScript", "Real-time"]}
+            image="/oopoll-project.png"
+            link="https://www.oopoll.com/"
+            collaborators={[
+              { name: "TheBlueBox", link: "https://www.linkedin.com/company/theblueboxdev" },
+              { name: "JackRabbit Mobile", link: "https://www.linkedin.com/company/jackrabbit-mobile/" },
+            ]}
+          />
+          <ProjectCard
+            title="ipsaIQ"
+            description="Web platform for free AI-powered legal consultations, integrating an AI model for legal queries and a blog powered by Strapi CMS."
+            tags={["Next.js", "TypeScript", "Strapi", "AI"]}
+            image="/ipsaiq-project.png"
+            link="#"
+            collaborators={[
+              { name: "TheBlueBox", link: "https://www.linkedin.com/company/theblueboxdev" },
+              { name: "TheCreativeBomb", link: "https://www.linkedin.com/company/thecreativebomb" },
+            ]}
+          />
+          <ProjectCard
+            title="The Blue Box — Landing Page"
+            description="Corporate landing page with blog powered by Markdown files, analytics integration, SEO optimization, and CI/CD deployment on Vercel."
+            tags={["Next.js", "TypeScript", "Analytics", "Vercel", "SEO", "Markdown"]}
+            image="/thebluebox-project.png"
+            link="https://www.thebluebox.dev"
+            collaborators={[
+              { name: "TheBlueBox", link: "https://www.linkedin.com/company/theblueboxdev" },
+            ]}
+          />
+          <ProjectCard
             title="Landing Page"
             description="Landing page for a web application using Next.js and Tailwind CSS."
             tags={["Next.js", "Lucide","TypeScript", "Lenis", "Tailwind CSS"]}
@@ -383,7 +437,7 @@ export default function Portfolio() {
       <footer className="py-12 px-6 md:px-12 lg:px-24 border-t border-zinc-800">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 mb-4 md:mb-0">
-            © {new Date().getFullYear()} Mario Carande Scarafía. Todos los derechos reservados.
+            © {new Date().getFullYear()} Mario Carande Scarafía. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="https://linkedin.com/in/mario-carande-scarafia" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
