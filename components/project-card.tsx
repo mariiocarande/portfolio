@@ -5,15 +5,21 @@ import { gsap } from "gsap"
 import { ArrowUpRight } from "lucide-react"
 import Image from "next/image"
 
+interface Collaborator {
+  name: string
+  link: string
+}
+
 interface ProjectCardProps {
   title: string
   description: string
   tags: string[]
   image: string
   link: string
+  collaborators?: Collaborator[]
 }
 
-export default function ProjectCard({ title, description, tags, image, link }: ProjectCardProps) {
+export default function ProjectCard({ title, description, tags, image, link, collaborators }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false)
   const cardRef = useRef<HTMLDivElement>(null)
 
@@ -58,6 +64,25 @@ export default function ProjectCard({ title, description, tags, image, link }: P
           />
         </h3>
         <p className="text-gray-400 mb-4">{description}</p>
+        {collaborators && collaborators.length > 0 && (
+          <div className="relative z-20 flex flex-wrap items-center gap-x-1 gap-y-1 text-sm text-gray-400 mb-4">
+            <span>Collaboration:</span>
+            {collaborators.map((c, i) => (
+              <span key={c.link} className="inline-flex items-center gap-1">
+                <a
+                  href={c.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors underline underline-offset-2"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  {c.name}
+                </a>
+                {i < collaborators.length - 1 && <span>&</span>}
+              </span>
+            ))}
+          </div>
+        )}
         <div className="flex flex-wrap gap-2">
           {tags.map((tag) => (
             <span key={tag} className="px-3 py-1 bg-zinc-800 rounded-full text-xs text-gray-300">
