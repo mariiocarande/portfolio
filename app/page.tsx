@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Award, ExternalLink, Github, Linkedin, Mail } from "lucide-react";
 import ProjectCard from "@/components/project-card";
 import Navbar from "@/components/navbar";
 import SplitText from "@/components/split-text";
@@ -16,6 +16,7 @@ export default function Portfolio() {
   const experienceRef = useRef(null);
   const projectsRef = useRef(null);
   const aboutRef = useRef(null);
+  const certificatesRef = useRef(null);
   const contactRef = useRef(null);
 
   // Experience data
@@ -152,6 +153,23 @@ export default function Portfolio() {
         ease: "power3.out",
         scrollTrigger: {
           trigger: aboutRef.current,
+          start: "top 80%",
+        },
+      },
+    );
+
+    // Certificates section animation
+    gsap.fromTo(
+      ".certificate-card",
+      { y: 50, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        stagger: 0.15,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: certificatesRef.current,
           start: "top 80%",
         },
       },
@@ -415,6 +433,12 @@ export default function Portfolio() {
               optimization, and creating intuitive interfaces that enhance user
               experience.
             </p>
+            <p>
+              Lately I&apos;ve been going deep into AI-powered products:
+              building agents with the Claude Agent SDK, integrating LLM APIs
+              (Claude &amp; OpenAI) with tool use and streaming, and shipping
+              custom MCP servers to connect models with real business tooling.
+            </p>
             <div className="pt-8">
               <h3 className="text-xl font-semibold mb-4">Skills</h3>
               <div className="flex flex-wrap gap-3">
@@ -428,6 +452,10 @@ export default function Portfolio() {
                   "Tailwind CSS",
                   "UI/UX Design",
                   "Figma",
+                  "AI Agents",
+                  "MCP",
+                  "Claude API",
+                  "OpenAI API",
                 ].map((skill) => (
                   <span
                     key={skill}
@@ -438,6 +466,41 @@ export default function Portfolio() {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Certificates Section */}
+      <section
+        id="certificates"
+        ref={certificatesRef}
+        className="py-24 px-6 md:px-12 lg:px-24"
+      >
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12">Certificates</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <a
+              href="https://verify.skilljar.com/c/2cug5v9chs9n"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="certificate-card group relative flex flex-col gap-4 p-6 rounded-2xl border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 hover:border-zinc-700 transition-colors"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-white/10">
+                  <Award className="w-6 h-6 text-white" />
+                </div>
+                <ExternalLink className="w-5 h-5 text-gray-500 group-hover:text-white transition-colors" />
+              </div>
+              <div>
+                <h3 className="text-xl font-semibold mb-1">
+                  Claude Code in Action
+                </h3>
+                <p className="text-gray-400">Anthropic · Issued Mar 2026</p>
+              </div>
+              <p className="text-sm text-gray-500 font-mono">
+                Credential ID: 2cug5v9chs9n
+              </p>
+            </a>
           </div>
         </div>
       </section>
