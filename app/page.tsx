@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
-import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react"
-import ProjectCard from "@/components/project-card"
-import Navbar from "@/components/navbar"
-import SplitText from "@/components/split-text"
-import TimelineItem from "@/components/timeline-item"
-import Image from "next/image"
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import ProjectCard from "@/components/project-card";
+import Navbar from "@/components/navbar";
+import SplitText from "@/components/split-text";
+import TimelineItem from "@/components/timeline-item";
+import Image from "next/image";
 
 export default function Portfolio() {
-  const headerRef = useRef(null)
-  const experienceRef = useRef(null)
-  const projectsRef = useRef(null)
-  const aboutRef = useRef(null)
-  const contactRef = useRef(null)
+  const headerRef = useRef(null);
+  const experienceRef = useRef(null);
+  const projectsRef = useRef(null);
+  const aboutRef = useRef(null);
+  const contactRef = useRef(null);
 
   // Experience data
   const experiences = [
@@ -26,7 +26,7 @@ export default function Portfolio() {
       position: "Full Stack Developer",
       description:
         "Development of web and mobile applications, including landing pages, admin dashboards, and mobile apps using React Native. Leveraging modern tools to create responsive, user-focused solutions and optimize the overall user experience.",
-      website: "https://www.thebluebox.dev"
+      website: "https://www.thebluebox.dev",
     },
     {
       year: "2019 - 2023",
@@ -36,10 +36,10 @@ export default function Portfolio() {
         "Development of web applications, including landing pages, admin dashboards, and Chrome extensions, using modern tools. Refactoring of applications with legacy code, creation of PWAs, and management of real-time data. Independent and team-based work, utilizing project management tools to optimize processes and enhance user experience.",
       website: "https://nimble.la",
     },
-  ]
+  ];
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
+    gsap.registerPlugin(ScrollTrigger);
 
     // Initial animation for the header
     gsap.fromTo(
@@ -53,7 +53,7 @@ export default function Portfolio() {
         ease: "power3.out",
         delay: 0.5,
       },
-    )
+    );
 
     gsap.fromTo(
       ".hero-subtitle",
@@ -65,7 +65,7 @@ export default function Portfolio() {
         ease: "power3.out",
         delay: 1.2,
       },
-    )
+    );
 
     gsap.fromTo(
       ".hero-button",
@@ -77,7 +77,7 @@ export default function Portfolio() {
         ease: "power3.out",
         delay: 1.4,
       },
-    )
+    );
 
     gsap.fromTo(
       ".profile-image-container",
@@ -89,7 +89,7 @@ export default function Portfolio() {
         ease: "power3.out",
         delay: 1.6,
       },
-    )
+    );
 
     // Experience section title animation
     gsap.fromTo(
@@ -105,7 +105,7 @@ export default function Portfolio() {
           start: "top 80%",
         },
       },
-    )
+    );
 
     // Timeline line drawing animation
     gsap.fromTo(
@@ -122,7 +122,7 @@ export default function Portfolio() {
           scrub: 0.6,
         },
       },
-    )
+    );
 
     // // Project cards animation
     gsap.fromTo(
@@ -139,7 +139,7 @@ export default function Portfolio() {
           start: "top 80%",
         },
       },
-    )
+    );
 
     // About section animation
     gsap.fromTo(
@@ -155,7 +155,7 @@ export default function Portfolio() {
           start: "top 80%",
         },
       },
-    )
+    );
 
     // Contact section animation
     gsap.fromTo(
@@ -172,42 +172,42 @@ export default function Portfolio() {
           start: "top 80%",
         },
       },
-    )
+    );
 
     // Cursor animation
-    const cursor = document.querySelector(".cursor")
-    const cursorFollower = document.querySelector(".cursor-follower")
+    const cursor = document.querySelector(".cursor");
+    const cursorFollower = document.querySelector(".cursor-follower");
 
     document.addEventListener("mousemove", (e) => {
       gsap.to(cursor, {
         x: e.clientX,
         y: e.clientY,
         duration: 0.1,
-      })
+      });
 
       gsap.to(cursorFollower, {
         x: e.clientX,
         y: e.clientY,
         duration: 0.3,
-      })
-    })
+      });
+    });
 
     document.querySelectorAll("a, button").forEach((el) => {
       el.addEventListener("mouseenter", () => {
-        gsap.to(".cursor", { scale: 1.5, opacity: 0.5, duration: 0.3 })
-        gsap.to(".cursor-follower", { scale: 3, opacity: 0.1, duration: 0.3 })
-      })
+        gsap.to(".cursor", { scale: 1.5, opacity: 0.5, duration: 0.3 });
+        gsap.to(".cursor-follower", { scale: 3, opacity: 0.1, duration: 0.3 });
+      });
 
       el.addEventListener("mouseleave", () => {
-        gsap.to(".cursor", { scale: 1, opacity: 1, duration: 0.3 })
-        gsap.to(".cursor-follower", { scale: 1, opacity: 0.3, duration: 0.3 })
-      })
-    })
+        gsap.to(".cursor", { scale: 1, opacity: 1, duration: 0.3 });
+        gsap.to(".cursor-follower", { scale: 1, opacity: 0.3, duration: 0.3 });
+      });
+    });
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
-  }, [])
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
 
   return (
     <main className="relative bg-black text-white min-h-screen">
@@ -218,18 +218,28 @@ export default function Portfolio() {
       <Navbar />
 
       {/* Hero Section */}
-      <section ref={headerRef} className="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-20 bg-slate-900">
+      <section
+        ref={headerRef}
+        className="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-20 bg-slate-900"
+      >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="max-w-5xl">
             <h1 className="hero-title text-4xl md:text-6xl lg:text-7xl font-bold mb-6 overflow-hidden">
-              <SplitText>Creating unique and memorable digital experiences</SplitText>
+              <SplitText>
+                Creating unique and memorable digital experiences
+              </SplitText>
             </h1>
             <p className="hero-subtitle text-xl md:text-2xl text-gray-400 mb-8 max-w-2xl">
-              Passionate web & mobile developer creating innovative digital solutions.
+              Passionate web & mobile developer creating innovative digital
+              solutions.
             </p>
             <Button
               className="hero-button bg-white text-black hover:bg-gray-200 rounded-full px-8 py-6 text-lg font-medium flex items-center gap-2 group"
-              onClick={() => document.getElementById("experience")?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() =>
+                document
+                  .getElementById("experience")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
             >
               My experience
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -243,13 +253,16 @@ export default function Portfolio() {
               className="object-cover"
               priority
             />
-            <div className="absolute inset-0 border-2 border-white/20 rounded-2xl"></div>
           </div>
         </div>
       </section>
 
       {/* Experience Timeline Section */}
-      <section id="experience" ref={experienceRef} className="py-24 px-6 md:px-12 lg:px-24 relative bg-zinc-900">
+      <section
+        id="experience"
+        ref={experienceRef}
+        className="py-24 px-6 md:px-12 lg:px-24 relative bg-zinc-900"
+      >
         <h2 className="experience-title text-3xl md:text-4xl font-bold mb-16 text-center">
           My professional career path
         </h2>
@@ -274,7 +287,11 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" ref={projectsRef} className="py-24 px-6 md:px-12 lg:px-24">
+      <section
+        id="projects"
+        ref={projectsRef}
+        className="py-24 px-6 md:px-12 lg:px-24"
+      >
         <h2 className="text-3xl md:text-4xl font-bold mb-16">Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           <ProjectCard
@@ -284,8 +301,14 @@ export default function Portfolio() {
             image="/trb-project.png"
             link="https://www.thereligionbusiness.com/"
             collaborators={[
-              { name: "TheBlueBox", link: "https://www.linkedin.com/company/theblueboxdev" },
-              { name: "TheCreativeBomb", link: "https://www.linkedin.com/company/thecreativebomb" },
+              {
+                name: "TheBlueBox",
+                link: "https://www.linkedin.com/company/theblueboxdev",
+              },
+              {
+                name: "TheCreativeBomb",
+                link: "https://www.linkedin.com/company/thecreativebomb",
+              },
             ]}
           />
           <ProjectCard
@@ -295,8 +318,14 @@ export default function Portfolio() {
             image="/broken-shepherds-project.png"
             link="https://app.brokenshepherds.com/"
             collaborators={[
-              { name: "TheBlueBox", link: "https://www.linkedin.com/company/theblueboxdev" },
-              { name: "TheCreativeBomb", link: "https://www.linkedin.com/company/thecreativebomb" },
+              {
+                name: "TheBlueBox",
+                link: "https://www.linkedin.com/company/theblueboxdev",
+              },
+              {
+                name: "TheCreativeBomb",
+                link: "https://www.linkedin.com/company/thecreativebomb",
+              },
             ]}
           />
           <ProjectCard
@@ -306,8 +335,14 @@ export default function Portfolio() {
             image="/oopoll-project.png"
             link="https://www.oopoll.com/"
             collaborators={[
-              { name: "TheBlueBox", link: "https://www.linkedin.com/company/theblueboxdev" },
-              { name: "JackRabbit Mobile", link: "https://www.linkedin.com/company/jackrabbit-mobile/" },
+              {
+                name: "TheBlueBox",
+                link: "https://www.linkedin.com/company/theblueboxdev",
+              },
+              {
+                name: "JackRabbit Mobile",
+                link: "https://www.linkedin.com/company/jackrabbit-mobile/",
+              },
             ]}
           />
           <ProjectCard
@@ -317,24 +352,40 @@ export default function Portfolio() {
             image="/ipsaiq-project.png"
             link="https://ipsaiq.com/"
             collaborators={[
-              { name: "TheBlueBox", link: "https://www.linkedin.com/company/theblueboxdev" },
-              { name: "TheCreativeBomb", link: "https://www.linkedin.com/company/thecreativebomb" },
+              {
+                name: "TheBlueBox",
+                link: "https://www.linkedin.com/company/theblueboxdev",
+              },
+              {
+                name: "TheCreativeBomb",
+                link: "https://www.linkedin.com/company/thecreativebomb",
+              },
             ]}
           />
           <ProjectCard
             title="The Blue Box — Landing Page"
             description="Corporate landing page with blog powered by Markdown files, analytics integration, SEO optimization, and CI/CD deployment on Vercel."
-            tags={["Next.js", "TypeScript", "Analytics", "Vercel", "SEO", "Markdown"]}
+            tags={[
+              "Next.js",
+              "TypeScript",
+              "Analytics",
+              "Vercel",
+              "SEO",
+              "Markdown",
+            ]}
             image="/thebluebox-project.png"
             link="https://www.thebluebox.dev"
             collaborators={[
-              { name: "TheBlueBox", link: "https://www.linkedin.com/company/theblueboxdev" },
+              {
+                name: "TheBlueBox",
+                link: "https://www.linkedin.com/company/theblueboxdev",
+              },
             ]}
           />
           <ProjectCard
             title="Landing Page"
             description="Landing page for a web application using Next.js and Tailwind CSS."
-            tags={["Next.js", "Lucide","TypeScript", "Lenis", "Tailwind CSS"]}
+            tags={["Next.js", "Lucide", "TypeScript", "Lenis", "Tailwind CSS"]}
             image="/project-1.png?height=600&width=800"
             link="https://landing-example-chi.vercel.app/"
           />
@@ -342,21 +393,27 @@ export default function Portfolio() {
       </section>
 
       {/* About Section */}
-      <section id="about" ref={aboutRef} className="py-24 px-6 md:px-12 lg:px-24 bg-zinc-800">
+      <section
+        id="about"
+        ref={aboutRef}
+        className="py-24 px-6 md:px-12 lg:px-24 bg-zinc-800"
+      >
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">About me</h2>
           <div className="about-content space-y-6 text-lg text-gray-300">
             <p>
-              I am a web & mobile developer passionate about creating digital experiences that combine
-              aesthetics and functionality.
+              I am a web & mobile developer passionate about creating digital
+              experiences that combine aesthetics and functionality.
             </p>
             <p>
-              With over 5 years of experience in web development, I specialize in creating websites and applications
-              that not only look good but also work exceptionally well.
+              With over 5 years of experience in web development, I specialize
+              in creating websites and applications that not only look good but
+              also work exceptionally well.
             </p>
             <p>
-              My approach focuses on attention to detail, performance optimization, and creating
-              intuitive interfaces that enhance user experience.
+              My approach focuses on attention to detail, performance
+              optimization, and creating intuitive interfaces that enhance user
+              experience.
             </p>
             <div className="pt-8">
               <h3 className="text-xl font-semibold mb-4">Skills</h3>
@@ -372,7 +429,10 @@ export default function Portfolio() {
                   "UI/UX Design",
                   "Figma",
                 ].map((skill) => (
-                  <span key={skill} className="px-4 py-2 bg-zinc-800 rounded-full text-sm">
+                  <span
+                    key={skill}
+                    className="px-4 py-2 bg-zinc-800 rounded-full text-sm"
+                  >
                     {skill}
                   </span>
                 ))}
@@ -383,14 +443,21 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" ref={contactRef} className="py-24 px-6 md:px-12 lg:px-24">
+      <section
+        id="contact"
+        ref={contactRef}
+        className="py-24 px-6 md:px-12 lg:px-24"
+      >
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12">Contact</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-8">
               <div className="contact-item flex items-center gap-4">
                 <Mail className="w-6 h-6" />
-                <a href="mailto:mariocarande.dev@gmail.com" className="text-lg hover:text-gray-300 transition-colors">
+                <a
+                  href="mailto:mariocarande.dev@gmail.com"
+                  className="text-lg hover:text-gray-300 transition-colors"
+                >
                   mariocarande.dev@gmail.com
                 </a>
               </div>
@@ -419,11 +486,14 @@ export default function Portfolio() {
             </div>
             <div className="contact-item">
               <p className="text-lg text-gray-300 mb-6">
-                Interested in working together? Send me a message and let's discuss your project.
+                Interested in working together? Send me a message and let's
+                discuss your project.
               </p>
               <Button
                 className="bg-white text-black hover:bg-gray-200 rounded-full px-8 py-6 text-lg font-medium flex items-center gap-2 group"
-                onClick={() => (window.location.href = "mailto:mariocarande.dev@gmail.com")}
+                onClick={() =>
+                  (window.location.href = "mailto:mariocarande.dev@gmail.com")
+                }
               >
                 Send Message
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
@@ -437,13 +507,24 @@ export default function Portfolio() {
       <footer className="py-12 px-6 md:px-12 lg:px-24 border-t border-zinc-800">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 mb-4 md:mb-0">
-            © {new Date().getFullYear()} Mario Carande Scarafía. All rights reserved.
+            © {new Date().getFullYear()} Mario Carande Scarafía. All rights
+            reserved.
           </p>
           <div className="flex gap-6">
-            <a href="https://linkedin.com/in/mario-carande-scarafia" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a
+              href="https://linkedin.com/in/mario-carande-scarafia"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
               <Linkedin className="w-5 h-5 text-gray-400 hover:text-white transition-colors" />
             </a>
-            <a href="https://github.com/mariiocarande" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <a
+              href="https://github.com/mariiocarande"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
               <Github className="w-5 h-5 text-gray-400 hover:text-white transition-colors" />
             </a>
             <a href="mailto:mdc.mariio@gmail.com" aria-label="Email">
@@ -453,5 +534,5 @@ export default function Portfolio() {
         </div>
       </footer>
     </main>
-  )
+  );
 }
