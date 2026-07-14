@@ -212,8 +212,8 @@ export default function Portfolio() {
   return (
     <main className="relative bg-black text-white min-h-screen">
       {/* Custom cursor */}
-      <div className="cursor fixed w-5 h-5 rounded-full bg-white z-50 pointer-events-none mix-blend-difference"></div>
-      <div className="cursor-follower fixed w-10 h-10 rounded-full bg-white opacity-30 z-40 pointer-events-none"></div>
+      <div className="cursor fixed w-5 h-5 rounded-full bg-white z-[60] pointer-events-none mix-blend-difference"></div>
+      <div className="cursor-follower fixed w-10 h-10 rounded-full bg-white opacity-30 z-[55] pointer-events-none"></div>
 
       <Navbar />
 
@@ -237,7 +237,7 @@ export default function Portfolio() {
           </div>
           <div className="profile-image-container relative aspect-square w-full max-w-md mx-auto lg:ml-auto overflow-hidden rounded-full">
             <Image
-              src="/profile-pic-1.png?height=800&width=800"
+              src="/profile-pic-hero.png"
               alt="Profile Image"
               fill
               className="object-cover"
@@ -390,8 +390,8 @@ export default function Portfolio() {
             <div className="space-y-8">
               <div className="contact-item flex items-center gap-4">
                 <Mail className="w-6 h-6" />
-                <a href="mailto:mdc.mariio@gmail.com" className="text-lg hover:text-gray-300 transition-colors">
-                  mdc.mariio@gmail.com
+                <a href="mailto:mariocarande.dev@gmail.com" className="text-lg hover:text-gray-300 transition-colors">
+                  mariocarande.dev@gmail.com
                 </a>
               </div>
               <div className="contact-item flex items-center gap-4">
@@ -423,7 +423,7 @@ export default function Portfolio() {
               </p>
               <Button
                 className="bg-white text-black hover:bg-gray-200 rounded-full px-8 py-6 text-lg font-medium flex items-center gap-2 group"
-                onClick={() => (window.location.href = "mailto:mdc.mariio@gmail.com")}
+                onClick={() => (window.location.href = "mailto:mariocarande.dev@gmail.com")}
               >
                 Send Message
                 <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
