@@ -76,16 +76,18 @@ export default function TimelineItem({
           <h3 className="text-xl font-bold">{company}</h3>
           <h4 className="text-lg text-gray-400 mb-2">{position}</h4>
           <p className="text-gray-300">{description}</p>
-          <div className="mt-4">
-            <a
-              href={website || "#"}
-              className="text-blue-500 hover:text-blue-400 transition-colors duration-300"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Visit website
-            </a>
-          </div>
+          {website && (
+            <div className="mt-4">
+              <a
+                href={website}
+                className="text-blue-500 hover:text-blue-400 transition-colors duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit website
+              </a>
+            </div>
+          )}
         </div>
       </div>
     </div>

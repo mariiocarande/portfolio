@@ -22,7 +22,14 @@ export default function Portfolio() {
   // Experience data
   const experiences = [
     {
-      year: "2023 - Present",
+      year: "2026 - Present",
+      company: "Freelance",
+      position: "Founder & Full Stack Developer",
+      description:
+        "Started my own venture building AI-powered products and shipping end-to-end web experiences for clients. Focused on integrating LLMs, agents, and MCP servers into real workflows, combining full-stack delivery with hands-on product and design decisions.",
+    },
+    {
+      year: "2023 - 2026",
       company: "The Blue Box",
       position: "Full Stack Developer",
       description:
